@@ -1,7 +1,11 @@
+import './styles/_index.scss';
+
+import Dashboard from './pages/Dashboard';
+
 function App() {
   return (
     <div className="App">
-      <h1>Teste</h1>
+      <Dashboard />
     </div>
   );
 }

@@ -1,0 +1,50 @@
+@use '../utils' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+html {
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-raleway: 'Raleway', sans-serif;
+
+  --gradient-start: hsl(6, 100%, 80%);
+  --gradient-end: hsl(335, 100%, 65%);
+
+  --white: hsl(0, 100%, 100%);
+  --paleblue: hsl(243, 100%, 93%);
+  --grayishblue: hsl(229, 7%, 55%);
+  --darkblue: hsl(228, 56%, 26%);
+  --verydarkblue: hsl(229, 57%, 11%);
+}
+
+body, input, textarea, select, button {
+  font-family: var(--font-raleway);
+}
+
+body {
+  font-size: rem(14);
+}
+
+button {
+  cursor: pointer;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+}
+
+a, a:visited, a:active {
+  color: inherit;
+  text-decoration: none;
+}

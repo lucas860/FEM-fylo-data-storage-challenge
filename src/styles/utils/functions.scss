@@ -1,0 +1,16 @@
+/*
+  https://css-tricks.com/snippets/sass/px-to-em-functions/
+
+  ** 1rem = 16px
+    - 30px to rem = 30 / 16 = 1.875rem
+   
+  *EMs are relative to their parent's font size
+
+  *REMs are relative to a base font-size
+
+  *This is important when intermediate containers change font sizes. Child elements with EMs will be affected, those using REMs will not.
+*/
+
+@function rem($pixels, $context: 16) {
+  @return ($pixels / $context) * 1rem;
+}
