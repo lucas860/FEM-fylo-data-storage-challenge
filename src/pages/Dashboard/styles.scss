@@ -1,23 +1,39 @@
 @use '../../styles/utils' as *;
 
-.dashboard-container {
+.dashboard-container { 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background: var(--verydarkblue);
-  background-image: url('../../assets/bg-desktop.png');
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: 100vw 50vh;
-  
   height: 100vh;
+
+  @include breakpoint('small') {
+    background-image: url('../../assets/bg-mobile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  };
+
+  @include breakpoint('large') {
+    background: var(--verydarkblue);
+    background-image: url('../../assets/bg-desktop.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100vw 50vh;
+  }
 }
 
 .fylo-content {
   display: flex;
+  justify-content: center;
 
-  align-items: flex-end;
+  @include breakpoint('small') {
+    flex-direction: column;
+  }
+
+  @include breakpoint('large') {
+    flex-direction: row;
+    align-items: flex-end;
+  }
 }
 
 .fylo-upload-card {
@@ -27,14 +43,25 @@
 
   background: var(--darkblue);
 
-  width: rem(380);
+  width: rem(330);
   height: rem(220);
 
-  margin-right: rem(40);
   padding: rem(45) rem(40);
 
   border-radius: rem(12);
   border-top-right-radius: rem(120);
+
+  margin-bottom: rem(20);
+
+  @include breakpoint('large') {
+    margin-right: rem(40);
+    margin-bottom: 0;
+  }
+
+  @include breakpoint('xlarge') {
+    width: rem(380);
+    height: rem(220);
+  }
 }
 
 .fylo-btns {
@@ -66,19 +93,73 @@
 
   background: var(--darkblue);
 
-  width: rem(600);
-  height: rem(160);
-
+  width: rem(330);
+  height: rem(180);
+  
   border-radius: rem(12);
 
   color: var(--paleblue);
+
+  @include breakpoint('large') {
+    width: rem(400);
+    height: rem(160);
+  }
+
+  @include breakpoint('xlarge') {
+    width: rem(600);
+  }
 }
 
+.fylo-upload-progress_bar-content {
+  width: rem(260);
+
+  margin-bottom: 30px;
+
+  @include breakpoint('large') {
+    width: 80%;
+
+    margin: 0;
+  }
+
+  @include breakpoint('xlarge') {
+    width: 85%;
+  }
+}
+
+.fylo-progress_bar-title {
+  width: 100%;
+
+  margin-bottom: rem(15);
+
+  text-align: center;
+
+  @include breakpoint('large') {
+    text-align: left;
+  }
+}
+
+.fylo-progress_bar {
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  
+  width: 100%;
+  height: rem(20);
+  
+  border: rem(2.5) solid var(--verydarkblue);
+  border-radius: rem(10);
+}
+
+.fylo-progress_bar-space {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-top: rem(10);
+}
 
 .fylo-upload-tooltip {
   position: absolute;
-  top: -50px;
-  right: 40px;
+  top: rem(140);
 
   display: flex;
   justify-content: center;
@@ -90,24 +171,12 @@
   height: rem(75);
 
   border-radius: rem(10);
-  border-bottom-right-radius: 0;
-
-  &::before {
-    content: '';
-    border-style: solid;
-    border-color: var(--white) transparent;
-    border-width: 25px 0 0 25px;
-    top: 95%;
-    bottom: 20px;
-    position: absolute;
-    right: 0;
-  }
 
   strong {
     font-size: rem(40);
     color: var(--verydarkblue);
 
-    margin-right: 10px;
+    margin-right: rem(10);
   }
 
   span {
@@ -118,30 +187,22 @@
     font-weight: bold;
     color: var(--grayishblue);
   }
-}
-
-
-.fylo-progress_bar-title {
-  width: 85%;
-
-  margin-bottom: rem(15);
-}
-
-.fylo-progress_bar {
-  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
   
-  width: 85%;
-  height: rem(20);
-  
-  border: rem(2.5) solid var(--verydarkblue);
-  border-radius: rem(10);
-}
+  @include breakpoint('large') {
+    top: rem(-50);
+    right: rem(40);
 
-.fylo-progress_bar-space {
-  display: flex;
-  justify-content: space-between;
+    border-bottom-right-radius: 0;
 
-  width: 85%;
-
-  margin-top: rem(10);
+    &::before {
+      content: '';
+      border-style: solid;
+      border-color: var(--white) transparent;
+      border-width: 25px 0 0 25px;
+      top: 95%;
+      bottom: 20px;
+      position: absolute;
+      right: 0;
+    }
+  }
 }
