@@ -17,21 +17,21 @@ function Dashboard() {
           </div>
 
           <div className="fylo-btns">
-            <div className="fylo-btn">
+            <button type="button" className="fylo-btn">
               <img src={fyloDocument} alt="fylo-document" />
-            </div>
+            </button>
 
-            <div className="fylo-btn">
+            <button type="button" className="fylo-btn">
               <img src={fyloFolder} alt="fylo-folder" />
-            </div>
+            </button>
 
-            <div className="fylo-btn">
+            <button type="button" className="fylo-btn">
               <img src={fyloUpload} alt="fylo-upload" />
-            </div>
+            </button>
           </div>
         </div>
 
-        <ProgressBar done={5} />
+        <ProgressBar progressBarPercentageDone={81.5} maxSpace={1000} />
       </div>
     </div>
   );

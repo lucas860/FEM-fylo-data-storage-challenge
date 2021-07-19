@@ -74,11 +74,18 @@
   align-items: center;
 
   background: var(--verydarkblue);
+
+  transition: background-color .1s ease-in-out;
   
   width: rem(50);
   height: rem(50);
 
   margin-right: rem(20);
 
+  border: none;
   border-radius: 10px;
+
+  &:hover {
+    background: var(--verydarkblue100);
+  }
 }
